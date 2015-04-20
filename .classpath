@@ -1,47 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src" />
-	<classpathentry kind="con"
-		path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
 		<attributes>
-			<attribute name="owner.project.facets" value="java" />
+			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con"
-		path="org.eclipse.jst.j2ee.internal.web.container" />
-	<classpathentry kind="con"
-		path="org.eclipse.jst.j2ee.internal.module.container" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Documents/lib/dom4j.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Documents/lib/jdom.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Documents/lib/log4j.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/jboss-as-7.1.1.Final/modules/javax/ejb/api/main/jboss-ejb-api_3.1_spec-1.0.1.Final.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/jboss-as-7.1.1.Final/jboss-modules.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/jboss-as-7.1.1.Final/modules/javax/ws/rs/api/main/jboss-jaxrs-api_1.1_spec-1.0.0.Final.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/jboss-as-7.1.1.Final/modules/javax/servlet/api/main/jboss-servlet-api_3.0_spec-1.0.0.Final.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/xstream-1.4.8.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/xmlpull_1_0_5.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/json_jar(www.down12.com)/json-lib-2.2.3-jdk15.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/json_jar(www.down12.com)/commons-lang-2.3.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/json_jar(www.down12.com)/ezmorph-1.0.3.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/json_jar(www.down12.com)/commons-logging-1.1.1.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/json_jar(www.down12.com)/commons-beanutils-1.7.0.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/json_jar(www.down12.com)/commons-collections-3.2.1.jar" />
-	<classpathentry kind="lib"
-		path="/Users/wang/Downloads/json_jar(www.down12.com)/commons-httpclient-3.1.jar" />
-	<classpathentry kind="output" path="build/classes" />
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/Users/chouaijun/Downloads/apache-tomcat-8.0.21/lib/servlet-api.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
 </classpath>
