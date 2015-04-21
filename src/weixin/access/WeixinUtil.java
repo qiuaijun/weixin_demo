@@ -22,8 +22,9 @@ import weixin.menu.Menu;
 /**
  * 公众平台通用接口工具类
  * 
- * @author liuyq
- * @date 2013-08-09
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class WeixinUtil {
 	private static Logger log = Logger.getLogger(WeixinUtil.class);
@@ -52,6 +53,7 @@ public class WeixinUtil {
 		// 调用接口创建菜单
 		JSONObject jsonObject = httpRequest(url, "POST", jsonMenu);
 
+		System.out.println(jsonMenu);
 		if (null != jsonObject) {
 			if (0 != jsonObject.getInt("errcode")) {
 				result = jsonObject.getInt("errcode");

@@ -1,9 +1,11 @@
 package weixin.access;
+
 /**
  * 微信通用接口凭证
  * 
- * @author liufeng
- * @date 2013-08-08
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class AccessToken {
 	// 获取到的凭证

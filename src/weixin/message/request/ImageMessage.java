@@ -3,8 +3,9 @@ package weixin.message.request;
 /**
  * 图片消息
  * 
- * @author liufeng
- * @date 2013-05-19
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class ImageMessage extends BaseMessage {
 	// 图片链接

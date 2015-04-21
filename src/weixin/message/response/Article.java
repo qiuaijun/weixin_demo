@@ -3,8 +3,9 @@ package weixin.message.response;
 /**
  * 图文model
  * 
- * @author liufeng
- * @date 2013-05-19
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class Article {
 	// 图文消息名称

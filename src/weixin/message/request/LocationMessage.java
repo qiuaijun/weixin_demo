@@ -3,8 +3,9 @@ package weixin.message.request;
 /**
  * 地理位置消息
  * 
- * @author liufeng
- * @date 2013-05-19
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class LocationMessage extends BaseMessage {
 	// 地理位置维度

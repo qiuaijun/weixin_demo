@@ -3,8 +3,9 @@ package weixin.menu;
 /**
  * 复杂按钮（父按钮）
  * 
- * @author liufeng
- * @date 2013-08-08
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class ComplexButton extends Button {
 	private Button[] sub_button;

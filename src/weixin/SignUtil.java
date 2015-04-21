@@ -7,8 +7,9 @@ import java.util.Arrays;
 /**
  * 请求校验工具类
  * 
- * @author liufeng
- * @date 2013-05-18
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class SignUtil {
 	// 与接口配置信息中的Token要一致

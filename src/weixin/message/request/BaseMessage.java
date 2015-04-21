@@ -3,8 +3,9 @@ package weixin.message.request;
 /**
  * 消息基类（普通用户 -> 公众帐号）
  * 
- * @author liufeng
- * @date 2013-05-19
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class BaseMessage {
 	// 开发者微信号

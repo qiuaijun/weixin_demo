@@ -3,8 +3,9 @@ package weixin.menu;
 /**
  * 按钮的基类
  * 
- * @author liufeng
- * @date 2013-08-08
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class Button {
 	private String name;

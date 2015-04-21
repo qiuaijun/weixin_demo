@@ -3,8 +3,9 @@ package weixin.message.response;
 /**
  * 消息基类（公众帐号 -> 普通用户）
  * 
- * @author liufeng
- * @date 2013-05-19
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class BaseMessage {
 	// 接收方帐号（收到的OpenID）

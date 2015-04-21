@@ -3,8 +3,9 @@ package weixin.message.request;
 /**
  * 文本消息
  * 
- * @author liufeng
- * @date 2013-05-19
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class TextMessage extends BaseMessage {
 	// 消息内容

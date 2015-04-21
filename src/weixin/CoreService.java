@@ -11,8 +11,9 @@ import weixin.message.response.TextMessage;
 /**
  * 核心服务类
  * 
- * @author liufeng
- * @date 2013-05-20
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class CoreService {
 	/**
@@ -83,7 +84,7 @@ public class CoreService {
 					String eventKey = requestMap.get("EventKey");
 
 					if (eventKey.equals("11")) {
-						respContent = "天气预报菜单项被点击！";
+						respContent = "企业介绍";
 					} else if (eventKey.equals("12")) {
 						respContent = "公交查询菜单项被点击！";
 					} else if (eventKey.equals("13")) {

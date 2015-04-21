@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 核心请求处理类
  * 
- * @author liufeng
- * @date 2013-05-18
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class CoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 4440739483644821986L;

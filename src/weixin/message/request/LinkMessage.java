@@ -3,8 +3,9 @@ package weixin.message.request;
 /**
  * 链接消息
  * 
- * @author liufeng
- * @date 2013-05-19
+ * @author qiuaijun
+ *
+ * @date 2015年4月21日
  */
 public class LinkMessage extends BaseMessage {
 	// 消息标题
@@ -38,4 +39,3 @@ public class LinkMessage extends BaseMessage {
 		Url = url;
 	}
 }
-
