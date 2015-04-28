@@ -7,7 +7,7 @@ package weixin.message.request;
  *
  * @date 2015年4月21日
  */
-public class ImageMessage extends BaseMessage {
+public class ImageReqMessage extends BaseReqMessage {
 	// 图片链接
 	private String PicUrl;
 

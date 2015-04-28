@@ -7,7 +7,7 @@ package weixin.message.response;
  *
  * @date 2015年4月21日
  */
-public class MusicMessage extends BaseMessage {
+public class MusicRespMessage extends BaseRespMessage {
 	// 音乐
 	private Music Music;
 

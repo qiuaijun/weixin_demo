@@ -7,7 +7,7 @@ package weixin.message.request;
  *
  * @date 2015年4月21日
  */
-public class LocationMessage extends BaseMessage {
+public class LocationReqMessage extends BaseReqMessage {
 	// 地理位置维度
 	private String Location_X;
 	// 地理位置经度

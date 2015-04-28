@@ -7,7 +7,7 @@ package weixin.message.request;
  *
  * @date 2015年4月21日
  */
-public class VoiceMessage extends BaseMessage {
+public class VoiceReqMessage extends BaseReqMessage {
 	// 媒体ID
 	private String MediaId;
 	// 语音格式

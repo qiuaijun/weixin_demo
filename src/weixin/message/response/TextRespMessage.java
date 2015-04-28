@@ -1,4 +1,4 @@
-package weixin.message.request;
+package weixin.message.response;
 
 /**
  * 文本消息
@@ -7,8 +7,8 @@ package weixin.message.request;
  *
  * @date 2015年4月21日
  */
-public class TextMessage extends BaseMessage {
-	// 消息内容
+public class TextRespMessage extends BaseRespMessage {
+	// 回复的消息内容
 	private String Content;
 
 	public String getContent() {

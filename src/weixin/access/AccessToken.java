@@ -12,6 +12,8 @@ public class AccessToken {
 	private String token;
 	// 凭证有效时间，单位：秒
 	private int expiresIn;
+	// 获取凭证的时间
+	private long time;
 
 	public String getToken() {
 		return token;
@@ -28,4 +30,13 @@ public class AccessToken {
 	public void setExpiresIn(int expiresIn) {
 		this.expiresIn = expiresIn;
 	}
+
+	public long getTime() {
+		return time;
+	}
+
+	public void setTime(long time) {
+		this.time = time;
+	}
+	
 }

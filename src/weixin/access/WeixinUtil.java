@@ -28,11 +28,38 @@ import weixin.menu.Menu;
  */
 public class WeixinUtil {
 	private static Logger log = Logger.getLogger(WeixinUtil.class);
+	// 第三方用户唯一凭证
+	public static String appId = "wx66f039c83a5fe048";
+	// 第三方用户唯一凭证密钥
+	public static String appSecret = "0accd7442c2e274d45e87cffd23f0f79";
+	private static AccessToken accessToken = null;
 	// 获取access_token的接口地址（GET） 限200（次/天）
 	public final static String access_token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 
 	// 菜单创建（POST） 限100（次/天）
 	public static String menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
+	private static String user_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
+
+	public static String getUserNameByOpenId(String openId) {
+		String name = "error";
+		String url = "";
+		JSONObject jsonObject = null;
+		try {
+			url = user_url.replace("ACCESS_TOKEN",
+					getAccessToken(appId, appSecret).getToken());
+			url = url.replace("OPENID", openId);
+			jsonObject = httpRequest(url, "GET", null);
+			if (null != jsonObject) {
+
+				name = jsonObject.getString("nickname");
+			}
+		} catch (JSONException e) {
+			log.error("获取用户失败 errcode:{} errmsg:{}"
+					+ jsonObject.getInt("errcode") + " errmsg:"
+					+ jsonObject.getString("errmsg"));
+		}
+		return name;
+	}
 
 	/**
 	 * 创建菜单
@@ -75,8 +102,11 @@ public class WeixinUtil {
 	 * @return
 	 */
 	public static AccessToken getAccessToken(String appid, String appsecret) {
-		AccessToken accessToken = null;
 
+		if (accessToken != null
+				&& System.currentTimeMillis() - accessToken.getTime() > 2 * 60 * 60 * 1000) {
+			return accessToken;
+		}
 		String requestUrl = access_token_url.replace("APPID", appid).replace(
 				"APPSECRET", appsecret);
 		JSONObject jsonObject = httpRequest(requestUrl, "GET", null);
@@ -86,6 +116,7 @@ public class WeixinUtil {
 				accessToken = new AccessToken();
 				accessToken.setToken(jsonObject.getString("access_token"));
 				accessToken.setExpiresIn(jsonObject.getInt("expires_in"));
+				accessToken.setTime(System.currentTimeMillis());
 			} catch (JSONException e) {
 				accessToken = null;
 				// 获取token失败

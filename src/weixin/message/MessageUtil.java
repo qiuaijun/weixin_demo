@@ -13,9 +13,9 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import weixin.message.response.Article;
-import weixin.message.response.MusicMessage;
-import weixin.message.response.NewsMessage;
-import weixin.message.response.TextMessage;
+import weixin.message.response.MusicRespMessage;
+import weixin.message.response.NewsRespMessage;
+import weixin.message.response.TextRespMessage;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
@@ -133,7 +133,7 @@ public class MessageUtil {
 	 *            文本消息对象
 	 * @return xml
 	 */
-	public static String textMessageToXml(TextMessage textMessage) {
+	public static String textMessageToXml(TextRespMessage textMessage) {
 		xstream.alias("xml", textMessage.getClass());
 		return xstream.toXML(textMessage);
 	}
@@ -145,7 +145,7 @@ public class MessageUtil {
 	 *            音乐消息对象
 	 * @return xml
 	 */
-	public static String musicMessageToXml(MusicMessage musicMessage) {
+	public static String musicMessageToXml(MusicRespMessage musicMessage) {
 		xstream.alias("xml", musicMessage.getClass());
 		return xstream.toXML(musicMessage);
 	}
@@ -157,7 +157,7 @@ public class MessageUtil {
 	 *            图文消息对象
 	 * @return xml
 	 */
-	public static String newsMessageToXml(NewsMessage newsMessage) {
+	public static String newsMessageToXml(NewsRespMessage newsMessage) {
 		xstream.alias("xml", newsMessage.getClass());
 		xstream.alias("item", new Article().getClass());
 		return xstream.toXML(newsMessage);

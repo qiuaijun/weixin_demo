@@ -7,7 +7,7 @@ package weixin.message.request;
  *
  * @date 2015年4月21日
  */
-public class LinkMessage extends BaseMessage {
+public class LinkReqMessage extends BaseReqMessage {
 	// 消息标题
 	private String Title;
 	// 消息描述

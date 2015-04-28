@@ -14,12 +14,12 @@ import weixin.access.WeixinUtil;
  */
 public class MenuManager {
 	private static Logger log = Logger.getLogger(MenuManager.class);
+	// 第三方用户唯一凭证
+	public static String appId = "wx66f039c83a5fe048";
+	// 第三方用户唯一凭证密钥
+	public static String appSecret = "0accd7442c2e274d45e87cffd23f0f79";
 
 	public static void main(String[] args) {
-		// 第三方用户唯一凭证
-		String appId = "wx66f039c83a5fe048";
-		// 第三方用户唯一凭证密钥
-		String appSecret = "0accd7442c2e274d45e87cffd23f0f79";
 
 		// 调用接口获取access_token
 		AccessToken at = WeixinUtil.getAccessToken(appId, appSecret);
@@ -48,51 +48,47 @@ public class MenuManager {
 		btn11.setKey("11");
 
 		CommonButton btn12 = new CommonButton();
-		btn12.setName("我要加盟");
+		btn12.setName("社区服务站");
 		btn12.setType("click");
 		btn12.setKey("12");
 
-		CommonButton btn13 = new CommonButton();
-		btn13.setName("客户咨询");
-		btn13.setType("click");
-		btn13.setKey("13");
-
-		CommonButton btn21 = new CommonButton();
-		btn21.setName("商品简介");
-		btn21.setType("click");
-		btn21.setKey("21");
-
-		CommonButton btn22 = new CommonButton();
-		btn22.setName("近期促销");
-		btn22.setType("click");
-		btn22.setKey("22");
+		// 团子商城--产品信息
+		CommonButton productBtn = new CommonButton();
+		productBtn.setName("产品信息");
+		productBtn.setType("click");
+		productBtn.setKey("query_product");
+		// 团子商城--我要预订
+		CommonButton bookedBtn = new CommonButton();
+		bookedBtn.setName("我要预订");
+		bookedBtn.setType("click");
+		bookedBtn.setKey("booked");
 
 		CommonButton btn31 = new CommonButton();
-		btn31.setName("联系我们");
+		btn31.setName("优惠信息");
 		btn31.setType("click");
 		btn31.setKey("31");
 
 		CommonButton btn32 = new CommonButton();
-		btn32.setName("商品反馈");
+		btn32.setName("健康知识");
 		btn32.setType("click");
 		btn32.setKey("32");
 
-		View baiduview = new View();
-		baiduview.setType("view");
-		baiduview.setName("百度");
-		baiduview.setUrl("http://www.baidu.com");
+		CommonButton btn33 = new CommonButton();
+		btn33.setName("联系我们");
+		btn33.setType("click");
+		btn33.setKey("33");
 
 		ComplexButton mainBtn1 = new ComplexButton();
-		mainBtn1.setName("关于绿田");
-		mainBtn1.setSub_button(new CommonButton[] { btn11, btn12, btn13 });
+		mainBtn1.setName("关于团子");
+		mainBtn1.setSub_button(new CommonButton[] { btn11, btn12 });
 
 		ComplexButton mainBtn2 = new ComplexButton();
-		mainBtn2.setName("商品介绍");
-		mainBtn2.setSub_button(new CommonButton[] { btn21, btn22 });
+		mainBtn2.setName("团子商城");
+		mainBtn2.setSub_button(new Button[] { productBtn, bookedBtn });
 
 		ComplexButton mainBtn3 = new ComplexButton();
 		mainBtn3.setName("更多信息");
-		mainBtn3.setSub_button(new Button[] { btn31, btn32, baiduview });
+		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33 });
 
 		/**
 		 * 这是公众号xiaoqrobot目前的菜单结构，每个一级菜单都有二级菜单项<br>
