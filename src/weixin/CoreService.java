@@ -1,10 +1,10 @@
 package weixin;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +12,8 @@ import weixin.access.WeixinUtil;
 import weixin.dao.UserInfoDao;
 import weixin.message.MessageUtil;
 import weixin.message.response.TextRespMessage;
+import weixin.order.Order;
+import weixin.product.Product;
 
 /**
  * 核心服务类
@@ -22,12 +24,27 @@ import weixin.message.response.TextRespMessage;
  */
 public class CoreService {
 	// 缓冲用户的上次操作，主要是用于预订流程的控制
-	private static Map<String, String> user2LastBookOpt = new ConcurrentHashMap<String, String>();
+	private static Map<String, Order> user2LastBookOpt = new ConcurrentHashMap<String, Order>();
 
-	private static List products = new ArrayList();
+	private static Map<String, Product> products = new ConcurrentHashMap<String, Product>();
 	static {
-		products.add("苹果");
-		products.add("樱桃");
+		Product product1 = new Product();
+		product1.setName("苹果");
+		Product product2 = new Product();
+		product2.setName("樱桃");
+		products.put("1", product1);
+		products.put("2", product2);
+	}
+
+	/**
+	 * 判断是否为数字
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static boolean isNumeric(String str) {
+		Pattern pattern = Pattern.compile("[0-9]*");
+		return pattern.matcher(str).matches();
 	}
 
 	/**
@@ -66,13 +83,37 @@ public class CoreService {
 				respContent = "您发送的是文本消息！";
 				String msg = requestMap.get("Content");
 				respContent += msg;
-				String value = user2LastBookOpt.get(fromUserName);
+				Order value = user2LastBookOpt.get(fromUserName);
 				respContent += value;
-				if (value != null && value.equals("book")) {
-					if (products.contains(msg)) {
-						respContent = "请输入预订的数量，单位：箱";
-						user2LastBookOpt.put(fromUserName, "count");
+				if (value != null) {
+					// 已经选择预订，此处需要判断所输入的产品是否存在
+					if (value.getStatus() == 1) {
+						if (products.keySet().contains(msg)) {
+							respContent = "请输入预订的" + msg + "数量，单位：箱";
+							// 将状态设置为确认数量
+							value.setStatus(2);
+							value.setProductId(products.get(msg).getId());
+							user2LastBookOpt.put(fromUserName, value);
+						} else {
+							respContent = "你输入的产品标识不存在，请重新输入！";
+						}
+					} else if (value.getStatus() == 2) {
+						// 先判断是否为数字
+						if (isNumeric(msg)) {
+							respContent = "感谢你预订了" + msg + "箱"
+									+ products.get(value.getProductId());
+							value.setStatus(3);
+							user2LastBookOpt.remove(fromUserName);
+						} else {
+							respContent = "你输入的格式不对，应该为数字！";
+						}
+					} else {
+						respContent = "你输入的格式不对！";
+						user2LastBookOpt.remove(fromUserName);
 					}
+				} else {
+					respContent = "你输入的格式不对！";
+					user2LastBookOpt.remove(fromUserName);
 				}
 			}
 			// 图片消息
@@ -114,13 +155,18 @@ public class CoreService {
 					String fromUser = WeixinUtil
 							.getUserNameByOpenId(fromUserName);
 					if (eventKey.equals("booked")) {
-						respContent = "请输入需要预订的产品：\n";
-						for (int i = 0; i < products.size(); i++) {
-							respContent += (i + 1) + "." + products.get(i)
-									+ "\n";
+						respContent = "请输入需要预订的产品标识：\n";
+						Iterator<String> it = products.keySet().iterator();
+						while (it.hasNext()) {
+							String tmp = it.next();
+							respContent += tmp + "."
+									+ products.get(tmp).getName() + "\n";
 						}
+						Order order = new Order();
+						order.setUserId(fromUserName);
+						order.setStatus(1);
 						// 本次操作是请求预订，那么下一步应该是输入1或者2，否则就清除
-						user2LastBookOpt.put(fromUserName, "book");
+						user2LastBookOpt.put(fromUserName, order);
 					} else {
 						user2LastBookOpt.remove(fromUserName);
 						if (eventKey.equals("11")) {

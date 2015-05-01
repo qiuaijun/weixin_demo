@@ -1,0 +1,6 @@
+[INFO ] 2015-04-21 21:45:42,514               weixin.menu.MenuManager     - 菜单创建成功！
+[ERROR] 2015-04-21 22:22:01,614              weixin.access.WeixinUtil     - 创建菜单失败 errcode:40054 errmsg:invalid sub button url domain
+[INFO ] 2015-04-21 22:22:01,624               weixin.menu.MenuManager     - 菜单创建失败，错误码：40054
+[ERROR] 2015-04-21 22:25:46,774              weixin.access.WeixinUtil     - 创建菜单失败 errcode:40054 errmsg:invalid sub button url domain
+[INFO ] 2015-04-21 22:25:46,776               weixin.menu.MenuManager     - 菜单创建失败，错误码：40054
+[INFO ] 2015-04-21 22:27:43,644               weixin.menu.MenuManager     - 菜单创建成功！

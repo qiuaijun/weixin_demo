@@ -37,58 +37,68 @@ public class MenuManager {
 	}
 
 	/**
+	 * emoji表情转换(hex -> utf-16)
+	 * 
+	 * @param hexEmoji
+	 * @return
+	 */
+	public static String emoji(int hexEmoji) {
+		return String.valueOf(Character.toChars(hexEmoji));
+	}
+
+	/**
 	 * 组装菜单数据
 	 * 
 	 * @return
 	 */
 	private static Menu getMenu() {
 		CommonButton btn11 = new CommonButton();
-		btn11.setName("企业介绍");
+		btn11.setName("🍒五莲大樱桃");
 		btn11.setType("click");
 		btn11.setKey("11");
 
 		CommonButton btn12 = new CommonButton();
-		btn12.setName("社区服务站");
+		btn12.setName("🍷法国红酒");
 		btn12.setType("click");
 		btn12.setKey("12");
 
+		CommonButton btn13 = new CommonButton();
+		btn13.setName("🍎烟台苹果");
+		btn13.setType("click");
+		btn13.setKey("13");
+
 		// 团子商城--产品信息
-		CommonButton productBtn = new CommonButton();
-		productBtn.setName("产品信息");
-		productBtn.setType("click");
-		productBtn.setKey("query_product");
+		CommonButton btn21 = new CommonButton();
+		btn21.setName("💻网上预订");
+		btn21.setType("click");
+		btn21.setKey("booked");
 		// 团子商城--我要预订
-		CommonButton bookedBtn = new CommonButton();
-		bookedBtn.setName("我要预订");
-		bookedBtn.setType("click");
-		bookedBtn.setKey("booked");
+		CommonButton btn22 = new CommonButton();
+		btn22.setName("📋其他方式");
+		btn22.setType("click");
+		btn22.setKey("query_product");
 
 		CommonButton btn31 = new CommonButton();
-		btn31.setName("优惠信息");
+		btn31.setName("👉🏼关于我们");
 		btn31.setType("click");
 		btn31.setKey("31");
 
 		CommonButton btn32 = new CommonButton();
-		btn32.setName("健康知识");
+		btn32.setName("📌健康贴士");
 		btn32.setType("click");
 		btn32.setKey("32");
 
-		CommonButton btn33 = new CommonButton();
-		btn33.setName("联系我们");
-		btn33.setType("click");
-		btn33.setKey("33");
-
 		ComplexButton mainBtn1 = new ComplexButton();
-		mainBtn1.setName("关于团子");
-		mainBtn1.setSub_button(new CommonButton[] { btn11, btn12 });
+		mainBtn1.setName("近期热销");
+		mainBtn1.setSub_button(new CommonButton[] { btn11, btn12, btn13 });
 
 		ComplexButton mainBtn2 = new ComplexButton();
-		mainBtn2.setName("团子商城");
-		mainBtn2.setSub_button(new Button[] { productBtn, bookedBtn });
+		mainBtn2.setName("如何购买");
+		mainBtn2.setSub_button(new Button[] { btn21, btn22 });
 
 		ComplexButton mainBtn3 = new ComplexButton();
-		mainBtn3.setName("更多信息");
-		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33 });
+		mainBtn3.setName("走进百米");
+		mainBtn3.setSub_button(new Button[] { btn31, btn32 });
 
 		/**
 		 * 这是公众号xiaoqrobot目前的菜单结构，每个一级菜单都有二级菜单项<br>
